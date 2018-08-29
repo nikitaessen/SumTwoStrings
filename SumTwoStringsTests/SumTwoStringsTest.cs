@@ -25,21 +25,10 @@ namespace SumTwoStringsTests
             string arg2 = "354548454446547456478658467685674867";
 
             var calc = new Calculator();
-            var result = calc.SumTwoStrings(arg1, arg2);
+            var result1 = calc.SumTwoStrings(arg1, arg2);
+            var result2 = calc.SumTwoStrings(arg2, arg1);
 
-            Assert.AreEqual(arg2, result);
-        }
-
-        [TestMethod]
-        public void Calculator_WhenSecondArgumentNull_ShouldReturnFirstArgument()
-        {
-            string arg1 = "354548454446547456478658467685674867";
-            string arg2 = null;
-
-            var calc = new Calculator();
-            var result = calc.SumTwoStrings(arg1, arg2);
-
-            Assert.AreEqual(arg1, result);
+            Assert.AreEqual(arg2, result1, result2);
         }
 
         [TestMethod]
