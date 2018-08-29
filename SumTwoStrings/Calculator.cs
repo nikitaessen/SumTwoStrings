@@ -34,21 +34,18 @@ namespace SumTwoStrings
 
             var diff = length1 - length2;
 
-            num1 = new string(num1.Reverse().ToArray());
-            num2 = new string(num2.Reverse().ToArray());
-
             var carry = 0;
 
-            for (var i = 0; i < length2; i++)
+            for (var i = length2 - 1; i >= 0; i--)
             {
-                var sum = (int)char.GetNumericValue(num1[i]) + (int)char.GetNumericValue(num2[i]) + carry;
+                var sum = (int)char.GetNumericValue(num1[i + diff]) + (int)char.GetNumericValue(num2[i]) + carry;
                 result += sum % 10;
 
                 carry = sum / 10;
             }
 
             //Add remaining 'carry' to larger number
-            for (var i = length2; i < length1; i++)
+            for (var i = length1 - length2 - 1; i >= 0; i--)
             {
                 var sum = (int)char.GetNumericValue(num1[i]) + carry;
                 result += sum % 10;
