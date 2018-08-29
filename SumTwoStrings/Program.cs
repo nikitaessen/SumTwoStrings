@@ -3,17 +3,9 @@ using System.Linq;
 
 namespace SumTwoStrings
 {
-    class Program
+    public class Calculator
     {
-        static void Main(string[] args)
-        {
-            string x = "12345678901234567890";
-            string y = "23232323232323232324";
-
-            var sum = SumTwoStrings(x, y);
-        }
-
-        private static string SumTwoStrings(string num1, string num2)
+        public string SumTwoStrings(string num1, string num2)
         {
             if (num1 == null)
             {
@@ -32,7 +24,7 @@ namespace SumTwoStrings
 
             var result = string.Empty;
 
-            if(num2.Length > num1.Length)
+            if (num2.Length > num1.Length)
             {
                 SwapStrings(ref num1, ref num2);
             }
@@ -72,12 +64,24 @@ namespace SumTwoStrings
             return new string(result.Reverse().ToArray());
         }
 
-        private static void SwapStrings(ref string str1, ref string str2)
+        private void SwapStrings(ref string str1, ref string str2)
         {
             str1 = string.Join(string.Empty, str1, str2);
 
             str2 = str1.Remove(str1.Length - str2.Length, str2.Length);
             str1 = str1.Remove(0, str2.Length);
+        }
+    }
+
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            string x = "12345678901234567890";
+            string y = "23232323232323232324";
+
+            var calc = new Calculator();
+            var sum = calc.SumTwoStrings(x, y);
         }
     }
 }
