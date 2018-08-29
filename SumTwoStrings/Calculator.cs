@@ -32,8 +32,6 @@ namespace SumTwoStrings
             var length1 = num1.Length;
             var length2 = num2.Length;
 
-            var diff = length1 - length2;
-
             num1 = new string(num1.Reverse().ToArray());
             num2 = new string(num2.Reverse().ToArray());
 
